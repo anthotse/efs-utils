@@ -76,9 +76,9 @@ Requires(postun) : /sbin/service
 # so users are expected to install it through rustup. 
 # The conditional here checks for amzn2 because on amzn2, 
 # '0%{?rhel}' also evaluates to 7.
-%if 0%{?amzn2} || 0%{?rhel} != 7
-BuildRequires  : cargo rust
-%endif
+#%if 0%{?amzn2} || 0%{?rhel} != 7
+# BuildRequires  : cargo rust
+# %endif
 
 BuildRequires: openssl-devel
 
