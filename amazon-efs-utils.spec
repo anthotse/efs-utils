@@ -104,7 +104,7 @@ mv vendor %{_builddir}/%{name}/src/proxy/
 
 %build
 cd %{_builddir}/%{name}/src/proxy
-cargo build --release --manifest-path %{_builddir}/%{name}/src/proxy/Cargo.toml
+cargo build --offline --release --manifest-path %{_builddir}/%{name}/src/proxy/Cargo.toml
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/amazon/efs
