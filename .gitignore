@@ -7,6 +7,6 @@
 *.pyc
 
 __pycache__/
-build/
+/build/
 
 .DS_Store
