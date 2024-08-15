@@ -337,8 +337,10 @@ cfg_rt! {
     mod yield_now;
     pub use yield_now::yield_now;
 
-    mod consume_budget;
-    pub use consume_budget::consume_budget;
+    cfg_unstable! {
+        mod consume_budget;
+        pub use consume_budget::consume_budget;
+    }
 
     mod local;
     pub use local::{spawn_local, LocalSet, LocalEnterGuard};

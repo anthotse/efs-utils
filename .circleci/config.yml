@@ -265,37 +265,37 @@ workflows:
       - build-rpm-package:
           name: rocky8
           image: rockylinux/rockylinux:8
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: amazon-linux-latest
           image: amazonlinux:latest
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: amazon-linux-2
           image: amazonlinux:2
       - build-rpm-package:
           name: fedora-latest
           image: fedora:latest
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora29
           image: fedora:29
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora30
           image: fedora:30
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora31
           image: fedora:31
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora32
           image: fedora:32
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora33
           image: fedora:33
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora34
           image: fedora:34
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora35
           image: fedora:35
-      - build-rpm-package-rustup:
+      - build-rpm-package:
           name: fedora36
           image: fedora:36
       - build-suse-rpm-package:

@@ -16,7 +16,6 @@ pub struct Handle {
 }
 
 use crate::runtime::task::JoinHandle;
-use crate::runtime::BOX_FUTURE_THRESHOLD;
 use crate::util::error::{CONTEXT_MISSING_ERROR, THREAD_LOCAL_DESTROYED_ERROR};
 
 use std::future::Future;
@@ -189,11 +188,7 @@ impl Handle {
         F: Future + Send + 'static,
         F::Output: Send + 'static,
     {
-        if cfg!(debug_assertions) && std::mem::size_of::<F>() > BOX_FUTURE_THRESHOLD {
-            self.spawn_named(Box::pin(future), None)
-        } else {
-            self.spawn_named(future, None)
-        }
+        self.spawn_named(future, None)
     }
 
     /// Runs the provided function on an executor dedicated to blocking
@@ -296,15 +291,6 @@ impl Handle {
     /// [`tokio::time`]: crate::time
     #[track_caller]
     pub fn block_on<F: Future>(&self, future: F) -> F::Output {
-        if cfg!(debug_assertions) && std::mem::size_of::<F>() > BOX_FUTURE_THRESHOLD {
-            self.block_on_inner(Box::pin(future))
-        } else {
-            self.block_on_inner(future)
-        }
-    }
-
-    #[track_caller]
-    fn block_on_inner<F: Future>(&self, future: F) -> F::Output {
         #[cfg(all(
             tokio_unstable,
             tokio_taskdump,
