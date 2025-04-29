@@ -266,6 +266,15 @@ To mount file system to a specific mount target of the file system, run:
 sudo mount -t efs -o mounttargetip=mount-target-ip-address file-system-id efs-mount-point/
 ```
 
+When mounting to a specific mount target, either an IPv4 or an IPv6 address can be provided.
+```bash
+# Example 1 - IPv4 Address
+sudo mount -t efs -o mounttargetip=192.168.1.100 file-system-id efs-mount-point/
+
+# Example 2 - IPv6 Address
+sudo mount -t efs -o mounttargetip=2001:0db8:85a3:0000:0000:8a2e:0370:7334 file-system-id efs-mount-point/
+```
+
 To mount file system within a given network namespace, run:
 
 ```bash
